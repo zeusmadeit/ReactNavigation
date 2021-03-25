@@ -32,19 +32,23 @@ const ProfileStack = createStackNavigator();
 
 const RootTabScreen = () => {
   return (
-    <NavigationContainer>
-      <Tabs.Navigator>
-        <Tabs.Screen
-          name = "Home"
-          component = {HomeStackScreen}
-        />
-        <Tabs.Screen
-          name = "Profile"
-          component = {ProfileScreen}
-        />
+      <NavigationContainer>
+        <Tabs.Navigator>
+          <Tabs.Screen
+            name = "Home"
+            component = {HomeStackScreen}
+          />
+          <Tabs.Screen
+            name = "Profile"
+            component = {ProfileScreen}
+          />
+          <Tabs.Screen
+            name = "Store"
+            component = {HomeScreen}
+          />
 
-      </Tabs.Navigator>
-    </NavigationContainer>
+        </Tabs.Navigator>
+      </NavigationContainer>
   )
 }
 
@@ -52,12 +56,12 @@ const RootTabScreen = () => {
 const HomeStackScreen = () => {
   return (
       <HomeStack.Navigator>
-        <HomeStack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
         <HomeStack.Screen
           name="Login"
           component={LoginScreen}
           options={{ title: 'Log In' }}
         />
+      <HomeStack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
       </HomeStack.Navigator>
   );
 };
