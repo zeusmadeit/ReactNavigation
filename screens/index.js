@@ -1,41 +1,86 @@
 import React from 'react';
-import { StyleSheet, Button, Text, View} from 'react-native';
+import { StyleSheet, Button, Text, View, TouchableOpacity} from 'react-native';
 
-export const HomeScreen = ({ navigation}) => {
-    return (
-        <React.Fragment>
-            <Button
-                title="Go to Jane's profile"
-                onPress={() =>
-                navigation.navigate('Profile', { name: 'Jane' })
-                }
-            />
-        </React.Fragment>
-    );
-};
+// export class HomeScreen extends React.Component {
+//     render() {
+//       return(
+//         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//           <Text> This is my Home screen </Text>
+//         </View>
+//       );
+//     }
+//   }
+  export function HomeScreen({navigation}) {
+    return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text> This is my Home screen </Text>
+          <TouchableOpacity style={{marginTop: "10px"}} onPress={() => navigation.navigate('Profile')} >
+            Goto Profile
+          </TouchableOpacity>
 
-export const ProfileScreen = ({ navigation, route }) => {
-    return <Text>This is my profile</Text>;
-};
+          <TouchableOpacity style={{marginTop: "10px"}} onPress={() => navigation.navigate('Register')} >
+            Goto Sign Up
+          </TouchableOpacity>
 
-export const LoginScreen = ({ navigation, route }) => {
-    return (
-            <View>
-                <Text>This is the Log in Screen</Text>
-                <Text onClick = {() => navigation.push(RegisterScreen)}>Click here to Register </Text>
-            </View>
-    );
-};
-export const SplashScreen = ({ navigation, route }) => {
-    return (
-            <View style={{display: "flex", justifyContent: "center", alignItems: "center", padding: "20px"}}>
-                <Text>Welcome</Text>
-            </View>
-    );
-};
+        </View>
+      );
+  }
+  export class ExploreScreen extends React.Component {
+    render() {
+      return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
+          <Text> This is my Explore screen </Text>
+        </View>
+      );
+    }
+  }
+  
+  export class NotificationsScreen extends React.Component {
+    render() {
+      return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>
+          <Text> This is my Notifications screen </Text>
+        </View>
+      );
+    }
+  }
+  
+  export  class ProfileScreen extends React.Component {
+    render() {
+      return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
+          <Text> This is my Profile screen </Text>
+        </View>
+      );
+    }
+  }
 
-export const RegisterScreen = ({ navigation, route }) => {
-    return (<View>
-        <Text onClick = {() => navigation.push(ProfileScreen)}>This is the Register Screen click to visit Profile </Text>
-    </View> );
-};
+  export function RegisterScreen({navigation}) {
+    return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
+          <Text> This is the Registration Screen </Text>
+          <TouchableOpacity
+            onPress={() => {
+                navigation.navigate('Settings');
+            }}
+          >
+            Goto Settings
+          </TouchableOpacity>
+          {/*  */}
+          <TouchableOpacity style={{marginTop: "10px"}} onPress={() => navigation.navigate('Profile')} >
+            Goto Profile
+          </TouchableOpacity>
+        </View>
+      );
+  }
+  export function SettingsScreen ({navigation}) {
+    return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
+          <Text> This is the Settings screen </Text>
+          <TouchableOpacity style={{marginTop: "10px"}} onPress={() => navigation.goBack()} >
+            Go Back
+          </TouchableOpacity>
+        </View>
+      );
+  }
+  
