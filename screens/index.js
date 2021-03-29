@@ -54,6 +54,15 @@ import { StyleSheet, Button, Text, View, TouchableOpacity} from 'react-native';
       );
     }
   }
+  export  class CreateScreen extends React.Component {
+    render() {
+      return(
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
+          <Text> Create a new Post here </Text>
+        </View>
+      );
+    }
+  }
 
   export function RegisterScreen({navigation}) {
     return(
